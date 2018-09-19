@@ -1,0 +1,571 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="js/reveal.js/css/reveal.css">
+        <link rel="stylesheet" href="js/reveal.js/css/theme/black.css">
+        <style>
+        @import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
+        </style>
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section class="fig-container"
+                        data-fig-id="fig-opening"
+                        data-file="html/opening.html"
+                        data-transitions="0">
+                        <h2>Persistent hubs in weighted graphs</h2>
+                        <h5>Mattia G. Bergomi</h5>
+                        <p>
+                            <h6>Repository <a href="http://gitlab.com/mattia.bergomi/perscomb">gitlab.com/mattia.bergomi/perscomb</a></h6>
+                        </p>
+
+                        <img width="15%" border="0" data-src="../imgs/logo2.png" alt="umi-simap">
+                        <img width="44%" border="0" data-src="../imgs/cf_logo_tr.png" alt="cf">
+                        <img width="25%" border="0" data-src="../imgs/nvidia_logo.png" alt="nvidia">
+                </section>
+
+
+                <section style="text-align: left;">
+                    <h3>Who we are</h3>
+                    <p></br></p>
+                    <p style="float: left; font-size: 22pt; text-align: center; width: 24%; margin-right: 1%; margin-bottom: 0.5em;"><img src="../imgs/massimo.png" alt="Massimo" style="width: 100%">Massimo Ferri<sup>1</sup></p>
+                    <p style="float: left; font-size: 22pt; text-align: center; width: 24%; margin-right: 1%; margin-bottom: 0.5em;"><img src="../imgs/antonella.png" alt="Antonella" style="width: 100%">Antonella Tavaglione<sup>1</sup></p>
+                    <p style="float: left; font-size: 22pt; text-align: center; width: 24%; margin-right: 1%; margin-bottom: 0.5em;"><img src="../imgs/pietro.png" alt="Pietro" style="width: 100%">Pietro Vertechi<sup>2</sup></p>
+                    <p style="float: left; font-size: 22pt; text-align: center; width: 24%; margin-right: 1%; margin-bottom: 0.5em;"><img src="../imgs/lorenzo.png" alt="Lorenzo" style="width: 100%">Lorenzo Zuffi<sup>1</sup></p>
+
+
+                    <h6 style="text-align: center; margin-top:15em"><sup>1</sup> University of Bologna - Bologna, Italy</h6>
+                    <h6 style="text-align: center;"><sup>2</sup> Champalimaud Research - Lisbon, Portugal </h6>
+				</section>
+
+                <section style="text-align: left;">
+                    <h3>Outline</h3>
+
+                    <h4 style="color: #4aff;">Persistence on weighted graphs</h4>
+                        <ul>
+                        <li>(Classic) topological persistence</li>
+                        <li>Combinatorial persistence: Coherent sampling and property-based filters</li>
+                    </ul>
+                    <h4 style="color: #4aff;">Applications</h4>
+                        <ul >
+                        <li>Hubs detection</li>
+                        <li>Dynamical hubs detection</li>
+                        </ul>
+                    </ul>
+
+
+                    <div class="fig-container" data-file="html/structure.html" style="margin-bottom: 10em">
+                        <p style="float: left; font-size: 22pt; text-align: left; width: 10%; margin-left: 2%; margin-right: 0%; margin-bottom: 0.5em;">Top pers</p>
+                        <p style="float: left; font-size: 22pt; text-align: left; width: 48%; margin-left: 2%; margin-right: 0%; margin-bottom: 0.5em;">Comb pers</p>
+                        <p style="float: left; font-size: 22pt; text-align: left; width: 36%; margin-left: 2%; margin-right: 0%; margin-bottom: 0.5em;">Applications</p>
+                    </div>
+                </section>
+
+                <section  style="text-align: left;">
+                    <h3>(Classic) topological persistence</h3>
+                        <h4 style="margin-bottom:2em">Framework</h4>
+
+                        <img width="40%" border="0" data-src="../imgs/height_f.svg" alt="height" style="float: left;">
+                        <p style="text-align: left; margin-bottom: 10em; margin-top:10em ">
+                        $\mathbb{X}$ triangulable manifold, $f$ continuous. $\mathbb{X}_{i} = f^{-1}\left(\left(-\infty, a_i\right]\right)$
+                            $$
+                            \mathbb{X}_{1} \subseteq \cdots \subseteq \mathbb{X}_{n} = \mathbb{X}
+                            $$
+                        </p>
+
+                </section>
+
+                <section  style="text-align: left;">
+                    <h3>(Classic) topological persistence</h3>
+                        <h4 style="margin-bottom:2em">Framework</h4>
+                        <img width="100%" border="0" data-src="../imgs/pers_ex.svg" alt="pers" style="float: left;">
+
+                </section>
+
+                <section  style="text-align: left;">
+                    <h3>(Classic) topological persistence</h3>
+                        <h4 style="margin-bottom:2em">Weighted graphs ...</h4>
+                            $$
+                                G = \left(V, E \right), \ \
+                                f: E\rightarrow\mathbb{R}
+                            $$
+                            <img width="100%" border="0" data-src="../imgs/graph.svg" alt="graph">
+                </section>
+
+                <section  style="text-align: left;">
+                    <h3>(Classic) topological persistence</h3>
+                        <h4>... as simplicial complexes</h4>
+                            <img width="100%" border="0" data-src="../imgs/trivial1.svg" alt="trivial">
+                </section>
+
+                <section  style="text-align: left;">
+                    <h3>(Classic) topological persistence</h3>
+                        <h4>... as simplicial complexes</h4>
+                            <img width="100%" border="0" data-src="../imgs/trivial2.svg" alt="trivial2">
+                </section>
+
+                <section  style="text-align: left;">
+                    <h3>(Classic) topological persistence</h3>
+                        <h4 style="margin-bottom:2em;margin-top:3em">References</h4>
+                        <h6>
+                            D.S. Bassett,  and O. Sporns.
+                            Network neuroscience.
+                            Nature neuroscience, 20.3: 353, 2017.
+                        </h6>
+                        <h6>
+                            M. W. Reimann, M. Nolte, M. Scolamiero, K. Turner, R. Perin, G. Chindemi,
+                            P. Dlotko, R. Levi, K. Hess, and H. Markram.
+                            Cliques of neurons bound into cavities provide a missing link between
+                            structure and function}.
+                            Frontiers in Computational Neuroscience, 2017.
+                        </h6>
+                        <h6>
+                            W. Huang and A. Ribeiro.
+                            Persistent homology lower bounds on high-order network distances.
+                             IEEE Transactions on Signal Processing, 2017.
+                        </h6>
+                        <h6>
+                            S. Pal, T. J. Moore, R. Ramanathan, and A. Swami.
+                            Comparative topological signatures of growing collaboration networks.
+                            In Workshop on Complex Networks CompleNet, 2017.
+                        </h6>
+                        <h6>
+                            G. Petri, P. Expert, F. Turkheimer, R. Carhart-Harris, D. Nutt, P. J. Hellyer,
+                            and F. Vaccarino.
+                            Homological scaffolds of brain functional networks.
+                            Journal of The Royal Society Interface, 2014.
+                        </h6>
+                        <h6 style="margin-bottom:5em">
+                            D. Horak, S. Maletic, and M. Rajkovic.
+                            Persistent homology of complex networks.
+                            Journal of Statistical Mechanics: Theory and Experiment, 2009.
+                        </h6>
+                </section>
+
+                <!-- <section style="text-align: left;">
+                    <h3>(Classic) topological persistence</h3>
+                        <h4>A Ramsey-type construction</h4>
+                        <p>Complementary simplicial constructions grasp more information</p>
+                        <img width="100%" border="0" data-src="../imgs/extendedtruncated1.svg" alt="ramsey1">
+
+                </section>
+
+                <section style="text-align: left;">
+                    <h3>(Classic) topological persistence</h3>
+                        <h4>A Ramsey-type construction</h4>
+                        <p>Complementary simplicial constructions grasp more information</p>
+                        <img width="100%" border="0" data-src="../imgs/extendedtruncated2.svg" alt="ramsey2">
+                </section> -->
+
+                <section style="text-align: left;">
+                    <h3 style="margin-bottom:2em">Combinatorial persistence</h3>
+                    <h4 style="font-size:1em;margin-bottom:1em">Questions:</h4>
+                        <p style="font-size:1em;color:#4aff;">Is it reasonable to speak about persistence and not about homology?</p>
+                        <p style="font-size:1em;color:#4aff;margin-bottom:8em">How general can such a framework be?</p>
+                </section>
+
+                <section style="text-align: left;">
+                    <h3>Combinatorial persistence</h3>
+                        <h4>Natural pseudodistance </h4>
+
+                        <p></br>
+                            Let $(G, f), (G^\prime, f^\prime)$ be weighted graphs and $H$
+                            the set of isomorphisms from $G$ to $G^\prime$.</p>
+
+                        <p>The natural pseudodistance of $(G, f)$ and $(G^\prime, f^\prime)$ is</p>
+                        <p>
+                            $$
+                            \delta\left(\left(G, f\right), \left(G', f'\right)\right) = \left\{
+                            \begin{array}{l l}
+                            \infty  & \mbox{if} \ \ \ H=\emptyset \\
+                            \inf_{\phi\in H}\sup_{e\in E} \left|f\left(e\right) - f'\left(\phi\left(e\right)\right)\right| \ \ & \mbox{otherwise}
+                            \end{array}
+                            \right.
+                            $$
+                        </p>
+                        <p></br></p>
+                        <h6>Ferri, Massimo.
+                            <i>Persistent topology for natural data analysis-A survey.</i>
+                            Towards Integrative Machine Learning and Knowledge Extraction. Springer, Cham, 2017. 117-133.</h6>
+                        <h6>Cagliari, Francesca, Barbara Di Fabio, and Claudia Landi.
+                            <i>The natural pseudo-distance as a quotient pseudo-metric, and applications.</i>
+                            Forum Mathematicum. Vol. 27. No. 3. De Gruyter, 2015.</h6>
+                        <h6  style="margin-bottom:10em">d'Amico, Michele, Patrizio Frosini, and Claudia Landi.
+                            <i>Natural pseudo-distance and optimal matching between reduced size functions.</i>
+                            Acta applicandae mathematicae 109.2 (2010): 527-554.</h6>
+                </section>
+
+                <section style="text-align: left;">
+                    <h3>Combinatorial persistence</h3>
+                        <h4>Persistence functions </h4>
+                        <p >
+                            All functions $\lambda_{(G, f)}: \Delta^+ \to \mathbb{Z}$ are said to be
+                            <i>persistence functions</i> if
+                        </p>
+                        <ul style="margin-bottom: 20em">
+                            <li>$\lambda_{(G, f)}(u, v)$ is nondecreasing in $u$ and nonincreasing in $v$ ;</li>
+                            <li>for all $u_1, u_2, v_1, v_2 \in\mathbb{R}$ such that $u_1 \le u_2 < v_1 \le v_2$
+                                the following inequality holds:
+                            $$\lambda_{(G, f)}(u_2, v_1) - \lambda_{(G, f)}(u_1, v_1) \ge \lambda_{(G, f)}(u_2, v_2) - \lambda_{(G, f)}(u_1, v_2)$$</li>
+                        </ul>
+                </section>
+
+                <section style="text-align: left;">
+                    <h3>Combinatorial persistence</h3>
+                        <h4>Stability</h4>
+                        <p style="margin-bottom: 20em">
+                        $\lambda_{(G, f)}$ is said to be <i>stable</i> if given an analogous pair $(G^\prime, f^\prime)$,
+                        an isomorphism $\psi:G\to G^\prime$ exists such that
+                        $$\sup_{e\in E} \left| f\left(e \right)-f^\prime\left(\psi\left(e\right)\right)\right|\le h$$
+                        where $h>0$, then for all $(u, v)\in \Delta^+$ the inequality
+                        $$\lambda_{(G, f)}(u-h, v+h)\le \lambda_{\left(G^\prime, f^\prime\right)}(u, v)$$
+                        holds.
+                        </p>
+                </section>
+
+                <section style="text-align: left;">
+                    <h3>Combinatorial persistence</h3>
+                        <h4>A note on stability...</h4>
+                        <p>
+                            For weighted graphs $\left(G, f\right), \left(G^\prime, f^\prime\right)$ as above, if $\lambda_{(G, f)}$ and $\lambda_{\left(G^\prime, f^\prime\right)}$ are stable then
+                        </p>
+                        <p style="margin-bottom:2em">
+                            $$
+                            d\left(D\left( f \right), D\left(f^\prime\right)\right) \le \delta\left(\left(G, f\right), \left(G^\prime, f^\prime\right)\right),
+                            $$
+                            where $d$ is the bottleneck distance.
+                        </p>
+
+                        <h4 >... and a remark on universality</h4>
+                        <p style="margin-bottom:15em">
+                            Is the inequality described above the best one that we can obtain from
+                            persistence diagrams?
+                        </p>
+
+                </section>
+
+                <section style="text-align: left;">
+                    <h3 >Combinatorial persistence</h3>
+                        <h4>Coherent samplings</h4>
+                            <p style="margin-bottom:.1em;">
+                            A <i>coherent sampling</i> $\mathcal{V}$ is the assignment to each graph $G$,
+                            where $G=\left(V, E\right)$ of a set $\mathcal{V}(G)$ of subsets of $V \cup E$,
+                            such that</p>
+
+                            <ul>
+                            <li>each $\mathcal{V}(G)$ is a finite (possibly empty) set of elements of $V\cup E$;</li>
+                            <li>if $G$ is a subgraph of $H$, then each element of $\mathcal{V}(G)$ is contained in
+                                exactly one element of $\mathcal{V}\left(H\right)$;</li>
+                            </ul>
+                            <p style="margin-bottom:.1em;">A coherent sampling is <i> stable</i> if
+                                $\psi:G\to G^\prime$ is an isomorphism, then
+                                    $\mathcal{V}\left(G^\prime\right)=\psi\left(\mathcal{V}\left(G\right)\right)$.
+                            </p>
+                            <p style="margin-bottom:10em;">
+                                For each inclusion $\iota: G \to H$ let $\Lambda(\iota)$ be the number of elements of
+                                $\mathcal{V}\left(H\right)$ containing at least one element of $\mathcal{V}\left(G\right)$.
+                            </br>
+                                For all filtering functions $f:E \to \mathbb{R}$, let
+                                $\lambda_{(G, f)}:\Delta^+ \to \mathbb{Z}$ be defined by
+                                $\lambda_{(G, f)}(u, v) = \Lambda(\iota_{(u, v)})$
+                                where $\iota_{(u, v)}: G_u \to G_v$ is the inclusion homomorphism. Then the functions $\lambda_{(G, f)}$ are persistence functions.
+                                If the coherent sampling is stable, so are the persistence functions.
+                            </p>
+                </section>
+
+                <!-- <section style="text-align: left;">
+                    <h3 style="margin-bottom:2em">Combinatorial persistence</h3>
+                        <h4>Coherent samplings</h4>
+                            <p>
+                                Let a coherent sampling ${\cal V}$ be given; for all graphs $G=(V, E)$, for all filtering
+                                functions $f:E \to \mathbb{R}$, let $\lambda_{(G, f)}:\Delta^+ \to \mathbb{Z}$
+                                be defined by $\lambda_{(G, f)}(u, v) = \Lambda(\iota_{(u, v)})$ where
+                                $\iota_{(u, v)}: G_u \to G_v$ is the inclusion homomorphism.
+
+                                Then the functions $\lambda_{(G, f)}$ are persistence functions.
+                                If the coherent sampling is stable, so are the persistence functions.
+                                Then the functions $\lambda_{(G, f)}$ are persistence functions.
+                                If the coherent sampling is stable, so are the persistence functions.
+                            </p>
+
+                </section> -->
+
+                <section style="text-align: left;">
+                    <h3>Combinatorial persistence</h3>
+                        <h4>Coherent samplings - Clique communities</h4>
+                        <img width="100%" border="0" data-src="../imgs/pers_communities1.svg" alt="cliques_comm">
+                </section>
+
+                <section style="text-align: left;">
+                    <h3 >Combinatorial persistence</h3>
+                        <h4>Coherent samplings - Clique communities</h4>
+
+                        <p style="text-align: right;margin-bottom: 3em">
+                            <img width="50%" border="0" data-src="../imgs/pers_communities2.svg" alt="cliques_comm2" style="float: left;">
+                            The assignment $\mathcal{C}^k$, which maps each graph $G$ to the set of its $k$-clique communities, is a stable coherent sampling.
+                            <h6>Classical use of cliques communities:</h6>
+                            <h6>
+                                B. Rieck, U. Fugacci, J. Lukasczyk, and H. Leitte.
+                                <i>Clique community persistence: A topological visual analysis approa for complex networks.</i>
+                                IEEE transactions on visualization and computer graphics, 2018.
+                            </h6>
+                            <h6>
+                                S. Fortunato.
+                                <i>Community detection in graphs</i>
+                                Physics reports, 2010.
+                            </h6>
+                        </p>
+
+                </section>
+
+                <section style="text-align: left;">
+                    <h3>Combinatorial persistence</h3>
+                        <h4>Property-based filters</h4>
+                        <p style="text-align: left;margin-bottom: 20em">
+                            <img width="30%" border="0" data-src="../imgs/sublevel.svg" alt="sublevels" style="float: left;">
+                        </br></br>
+                            Let $\left(G,f\right)$ be a weighted graph, with $G=(V, E)$
+                        </br></br>
+                            $F: 2^{V\cup E} \to \{true, false\}$ a property.
+                        </br></br>
+                            We call  <i>$F$-set</i> any set $A\subseteq V\cup E$ such that $F(A) = true$.
+                        </br></br>
+                            $A\subseteq V\cup E$ is an $F$-set  at level $w$
+                            if it is an $F$-set of the subgraph $G_w$.
+                        </p>
+                </section>
+
+                <section style="text-align: left;">
+                    <h3>Combinatorial persistence</h3>
+                        <h4>Property-based filters</h4>
+                        <p style="text-align: left;margin-bottom: 20em">
+                            <img width="30%" border="0" data-src="../imgs/sublevel.svg" alt="sublevels" style="float: left;">
+                        </br></br>
+                            We call $A\subseteq V\cup E$ a  <i>steady</i> $F$-set
+                            $(u, v) \in \Delta^+$ if it is an $F$-set at all levels $w$ with
+                            $u\le w \le v$.
+                        </br></br>
+                            We call $A$ a  <i>ranging</i> $F$-set
+                            at $(u, v)$ if there exist levels $w\le u$ and $w'\ge v$ at which it is an $F$-set.
+                        </br></br>
+                            Let $SF_{(G, f)}(u,v)$ be the set of s-$F$-sets at $(u, v)$ and let $RF_{(G, f)}(u,v)$
+                            be the set of r-$F$-sets at $(u, v)$.
+                        </p>
+                </section>
+
+                <section style="text-align: left;">
+                    <h3>Combinatorial persistence</h3>
+                        <h4>Property-based filters</h4>
+                        <p style="text-align: left;margin-bottom: 20em">
+                            <img width="30%" border="0" data-src="../imgs/sublevel.svg" alt="sublevels" style="float: left;">
+                            </br></br>
+                            The functions
+                            $$
+                            \begin{array}{l l}
+                            \sigma:\Delta^+\rightarrow \mathbb{R}\\
+                            (u,v)\mapsto \left|SF_{(G, f)}(u,v)\right|
+                            \end{array}
+                            $$
+                            and
+                            $$
+                            \begin{array}{l l}
+                            \rho:\Delta^+\rightarrow \mathbb{R}\\
+                            (u,v)\mapsto \left|RF_{(G, f)}(u,v)\right|
+                            \end{array}
+                            $$
+                            are persistence functions.
+                        </p>
+                </section>
+
+                <section style="text-align: left;">
+                    <h3>Combinatorial persistence</h3>
+                        <h4>Hubs</h4>
+                        <p style="text-align: left; margin-bottom: 10em">
+                            <img width="30%" border="10px" data-src="../imgs/icon-location.svg" alt="location" style="float: left;margin-right:1%">
+                            A <i>temporary hub (t-hub) at level</i> $u$  is a vertex of $G_u\subseteq G$ whose degree is
+                            greater than the degree of its neighbors.
+                        </br></br>
+                            A <i>steady hub (s-hub) at</i> $(u, v)\in \Delta^+$ is a vertex which is a t-hub at all levels
+                            $w$ with $u\le w \le v$.
+                        </br></br>
+                            A <i>ranging hub (r-hub) at</i> $(u, v)\in \Delta^+$ is a vertex such that there exist levels
+                            $w \le u$ and $w^\prime\ge v$ at which it is a t-hub.
+
+                        </p>
+                </section>
+
+                <section style="text-align: left;">
+                    <h3>Combinatorial persistence</h3>
+                        <h4>Hubs</h4>
+                            <img width="90%" border="0" data-src="../imgs/hub_filts.svg" alt="hubs_filtration">
+
+                </section>
+
+                <section style="text-align: left;">
+                    <h3>Combinatorial persistence</h3>
+                        <h4>Hubs</h4>
+                            <img width="100%" border="0" data-src="../imgs/hubs_graph.svg" alt="hubs_graph" style="margin-bottom: 10em">
+
+                </section>
+
+                <section >
+                        <h3>Applications</h3>
+
+                </section>
+                <section class="fig-container"
+                        data-fig-id="fig-container"
+                        data-file="html/miserables.html"
+                        data-transitions="0"
+                        style="text-align: left;pointer-events: none;">
+                        <h3>Les Miserables</h3>
+                        <h4 style="margin-bottom:20em">Characters co-occurence</h4>
+
+                </section>
+
+                <section style="text-align: left;">
+                        <h3>Les Miserables</h3>
+                        <h4 >Characters co-occurence</h4>
+                        <p style="float: left; font-size: 12pt; text-align: center; width: 49%; margin-right: 1%; margin-bottom: 20em;"><img src="../imgs/steady_mis.svg" alt="steady_mis" style="width: 100%">Steady hubs</p>
+                        <p style="float: left; font-size: 12pt; text-align: center; width: 49%; margin-right: 1%; margin-bottom: 20em;"><img src="../imgs/ranging_mis.svg" alt="ranging_mis" style="width: 100%">Ranging hubs</p>
+                </section>
+
+                <section style="text-align: left;">
+                        <h3>Les Miserables</h3>
+                        <h4 >... dealing with too many hubs?</h4>
+                        <p style="float: left; font-size: 12pt; text-align: center; width: 49%; margin-right: 1%; margin-bottom: .5em;"><img src="../imgs/nile.svg" alt="nile" style="width: 100%"></p>
+                        <p style="float: left; font-size: 12pt; text-align: center; width: 49%; margin-right: 1%; margin-bottom: .5em;"><img src="../imgs/nile_pd.svg" alt="nile_pd" style="width: 100%"></p>
+                        <h6 style="margin-bottom:20em">V. Kurlin. <i>A fast persistence-based segmentation of noisy 2D clouds with provable guarantees.</i> Pattern recognition letters, 83:3-12, 2016.</h6>
+                </section>
+
+                <section style="text-align: left;">
+                        <h3>Les Miserables</h3>
+                        <h4 >Select them!</h4>
+                        <p style="float: left; font-size: 12pt; text-align: center; width: 49%; margin-right: 1%; margin-bottom: 0.5em;"><img src="../imgs/nile_wg_highlight.svg" alt="steady_mis_gap" style="width: 100%"></p>
+                        <p style="float: left; font-size: 12pt; text-align: center; width: 49%; margin-right: 1%; margin-bottom: 0.5em;"><img src="../imgs/nile_pd_gap.svg" alt="ranging_mis_gap" style="width: 100%"></p>
+                        <h6 style="margin-bottom:20em">V. Kurlin. <i>A fast persistence-based segmentation of noisy 2D clouds with provable guarantees.</i> Pattern recognition letters, 83:3-12, 2016.</h6>
+                </section>
+
+                <section style="text-align: left;">
+                        <h3>Les Miserables</h3>
+                        <h4 >Characters co-occurence</h4>
+                        <p style="float: left; font-size: 12pt; text-align: center; width: 49%; margin-right: 1%; margin-bottom: 20em;"><img src="../imgs/steady_mis.svg" alt="steady_mis" style="width: 100%">Steady hubs</p>
+                        <p style="float: left; font-size: 12pt; text-align: center; width: 49%; margin-right: 1%; margin-bottom: 20em;"><img src="../imgs/ranging_mis.svg" alt="ranging_mis" style="width: 100%">Ranging hubs</p>
+                </section>
+
+                <section style="text-align: left;">
+                        <h3>Les Miserables</h3>
+                        <h4 >Characters co-occurence</h4>
+                        <p style="float: left; font-size: 12pt; text-align: center; width: 49%; margin-right: 1%; margin-bottom: 20em;"><img src="../imgs/steady_mis_gap.svg" alt="steady_mis_gap" style="width: 100%">Steady hubs</p>
+                        <p style="float: left; font-size: 12pt; text-align: center; width: 49%; margin-right: 1%; margin-bottom: 20em;"><img src="../imgs/ranging_mis_gap.svg" alt="ranging_mis_gap" style="width: 100%">Ranging hubs</p>
+                </section>
+
+                <section class="fig-container"
+                        data-fig-id="fig-got"
+                        data-file="html/got.html"
+                        data-transitions="0"
+                        style="text-align: left;pointer-events: none;">
+                        <h3>Hubs in Game of Throne (books I-V)</h3>
+                        <h4 style="margin-bottom:20em">Characters co-occurence</h4>
+                </section>
+
+                <section class="fig-container"
+                        data-fig-id="fig-got-dynamics"
+                        data-file="html/dynamical.html"
+                        data-transitions="0"
+                        style="text-align: left;pointer-events: none;">
+                        <h3>Time-varying hubs in Game of Thrones (books I-V)</h3>
+                        <h4 style="margin-bottom:20em">Characters co-occurence</h4>
+                </section>
+
+                <section  style="text-align: left;pointer-events: none;">
+                        <h3>Other applications</h3>
+                        <h4>Language and airport hubs</h4>
+                        <p style="text-align: left;">
+                            <img width="34%" height="33%" border="0" data-src="../imgs/europe.svg" alt="europe" style="float: left;">
+                            <img width="33%" border="0" data-src="../imgs/steady_langs_pd.svg" alt="steady_langs" style="float: left;">
+                            <img width="33%" border="0" data-src="../imgs/ranging_langs_pd.svg" alt="ranging_langs" style="float: left;">
+                        </p>
+
+
+                        <p style="text-align: left;">
+                            <img width="34%" border="0" data-src="../imgs/airport_hubs.png" alt="airports" style="float: left;">
+                            <img width="33%" border="0" data-src="../imgs/steady_air_pd.svg" alt="steady_air" style="float: left;">
+                            <img width="33%" border="0" data-src="../imgs/ranging_air_pd.svg" alt="ranging_air" style="float: left;">
+                        </p>
+                </section>
+
+                <section class="fig-container"
+                        data-fig-id="fig-connectome"
+                        data-file="html/connectome.html"
+                        data-transitions="0"
+                        style="text-align: left;">
+                        <h3 style="margin-bottom:2em">Conclusions</h3>
+                        <p style="margin-bottom:1em">Persistence-based signatures of data can be generated without
+                            auxiliary topological constructions.</p>
+                        <p style="margin-bottom:1em">Coeherent samplings and property-based filters are general
+                            recipes to create persistence functions.</p>
+                        <p style="margin-bottom:1em">We are working on a categorical extension of the theory
+                            presented here for weighted graphs.</p>
+
+<pre><code class="python">
+graph = pc.WeightedGraph(graph_structure)
+graph.build_graph()
+graph.build_filtered_subgraphs(weight_transform=opp,
+                               sublevel=True)
+graph.get_temporary_hubs_along_filtration()
+graph.ranging_hubs_persistence()
+graph.plot_ranging_persistence_diagram()
+</code></pre>
+                        </script>
+                </section>
+
+
+                <section style="text-align: left;">
+
+                        <h6 style="color:#ffffff">mattia.bergomi@neuro.fchampalimaud.org</h6>
+                        <h6 style="color:#ffffff">massimo.ferri@unibo.it</h6>
+                        <h6 style="color:#ffffff">antonella.tavaglione@studio.unibo.it</h6>
+                        <h6 style="color:#ffffff">pietro.vertechi@neuro.fchampalimaud.org</h6>
+                        <h6 style="color:#ffffff">lorenzo.zuffi@studio.unibo.it</h6>
+
+                        <p><a href="http://gitlab.com/mattia.bergomi/perscomb">gitlab.com/mattia.bergomi/perscomb</a></p>
+
+                </section>
+
+            </div>
+        </div>
+
+        <script src="js/reveal.js/lib/js/head.min.js"></script>
+        <script src="js/reveal.js/js/reveal.js"></script>
+        <script>
+            // Full list of configuration options available at:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: false,
+                progress: true,
+                slideNumber: false,
+                history: true,
+                center: true,
+                controlsBackArrows: 'visible',
+                transition: 'fade',
+                math: {
+					mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+					config: 'TeX-AMS_HTML-full',
+				},
+                // Optional reveal.js plugins
+                dependencies: [
+                    // d3.js library and plugin
+                    { src: 'https://d3js.org/d3.v4.min.js' },
+                    { src: 'js/d3js.js' },
+                    { src: 'js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'js/plugin/search/search.js', async: true },
+					{ src: 'js/plugin/zoom-js/zoom.js', async: true },
+                    { src: 'js/plugin/math/math.js', async: true },
+                    { src: 'js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+                ]
+            });
+
+        </script>
+    </body>
+</html>
